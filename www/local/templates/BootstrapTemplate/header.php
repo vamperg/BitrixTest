@@ -1,23 +1,25 @@
 <?php
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+
+use Bitrix\Main\Page\Asset;
+
+$assets = Asset::getInstance();
+
+
+/*$assets->addCss(SITE_TEMPLATE_PATH . '/css/bootstrap.css');
+$assets->addCss(SITE_TEMPLATE_PATH . '/css/product.css');*/
+$assets->addJs(SITE_TEMPLATE_PATH . 'js/bootstrap.bundle.min.js');
+
 ?>
+
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.83.1">
-    <title>Product example · Bootstrap v5.0</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
+    <title><?php $APPLICATION->ShowTitle(); ?></title>
 
-
-
-    <!-- Bootstrap core CSS -->
-<link href="<?=SITE_TEMPLATE_PATH?>/css/bootstrap.min.css" rel="stylesheet">
+      <?php $APPLICATION->ShowHead(); ?>
 
     <style>
       .bd-placeholder-img {
@@ -36,11 +38,10 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
     </style>
 
 
-    <!-- Custom styles for this template -->
-    <link href="<?=SITE_TEMPLATE_PATH?>/css/product.css" rel="stylesheet">
+
   </head>
   <body>
-
+  <?php $APPLICATION->ShowPanel(); ?>
 <header class="site-header sticky-top py-1">
   <nav class="container d-flex flex-column flex-md-row justify-content-between">
     <a class="py-2" href="#" aria-label="Product">

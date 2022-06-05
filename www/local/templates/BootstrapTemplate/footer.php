@@ -52,7 +52,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 </footer>
 
 
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 </body>
