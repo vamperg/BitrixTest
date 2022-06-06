@@ -1,22 +1,36 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"adawdw", 
-		"", 
+		"О таксопарке", 
+		"/index.php", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"awdad", 
-		"", 
+		"Начать работать", 
+		"/nachat-rabotat/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"awdwadwawd", 
-		"", 
+		"Расчет зарплаты", 
+		"/raschet-zarplaty/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Вопросы и ответы", 
+		"/voprosy-i-otvety/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"/kontakty/", 
 		Array(), 
 		Array(), 
 		"" 
