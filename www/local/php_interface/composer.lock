@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5872eec255c1983da818d936ad65299c",
+    "content-hash": "9ed203a3a42cce08357beee16688f63a",
     "packages": [
         {
             "name": "andreyryabin/sprint.options",

@@ -12,7 +12,7 @@
 
 /*# sourceMappingURL=bootstrap.min.css.map */
 .container {
-    max-width: 960px;
+    max-width: 1360px;
 }
 
 /*
@@ -21,11 +21,9 @@
 
 
 body{
-    font-family: PF Agora Sans Pro,sans-serif;
-   font-size: 15px;
-
+    font-size: 16px;
+    font-weight: 500;
 }
-
 
 .site-header {
     background-color: white;
@@ -33,23 +31,48 @@ body{
 }
 .site-header a {
     color: #8e8e8e;
-    transition: color .15s ease-in-out;
+    transition: color 0.45s ease-out;
 }
 .site-header a:hover {
     color: #fff;
     text-decoration: none;
 }
+.telephone{
+    font-size: 20px;
+    text-decoration: none;
+    padding: 12px 10px 11px 10px;
+    text-align: center;
+    background: #f3f3f3;
+    border-radius: 16px;
+    color: #0c0c0c !important;
+}
+.telephone:hover{
+    background: #ececec;;
+    color: #0c0c0c;
 
+}
+.site-header .top-menu{
+    align-items: center;
+}
 .site-header .top-menu .top-menu-link
 {
-    margin-left: 15px;
-    transition: 0.7s ease;
+    transition: 0.4s ease-out;
     color: #262626;
 }
+.site-header .top-menu a{
+    transition: 0.3s ease-out;
+}
 
+.site-header .top-menu .top-menu-link{
+    padding-right: 2em;
+}
+.site-header .top-menu .top-menu-link.active
+{
+    color: #d35b2b;
+}
 
 .site-header .top-menu .top-menu-link:hover{
-    color: #d3a03f;
+    color: #ff8400;
 }
 /*
  * Dummy devices (replace them with your own or something else entirely!)

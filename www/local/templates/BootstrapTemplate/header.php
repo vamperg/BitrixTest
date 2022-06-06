@@ -9,6 +9,7 @@ $assets = Asset::getInstance();
 /*$assets->addCss(SITE_TEMPLATE_PATH . '/css/bootstrap.css');
 $assets->addCss(SITE_TEMPLATE_PATH . '/css/product.css');*/
 $assets->addJs(SITE_TEMPLATE_PATH . 'js/bootstrap.bundle.min.js');
+$assets->addJs(SITE_TEMPLATE_PATH . 'js/script.js');
 
 ?>
 
@@ -40,11 +41,11 @@ $assets->addJs(SITE_TEMPLATE_PATH . 'js/bootstrap.bundle.min.js');
 
 
   </head>
-  <body>
+  <body class="bd">
   <?php $APPLICATION->ShowPanel(); ?>
 
 
-<header class="site-header sticky-top align-middle  py-2">
+<header class="site-header sticky-top align-middle py-2">
   <nav class="container d-flex flex-column flex-md-row justify-content-between align-middle">
     <a class="py-2" href="#" aria-label="Product">
         <svg width="147" height="40" viewBox="0 0 147 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +54,7 @@ $assets->addJs(SITE_TEMPLATE_PATH . 'js/bootstrap.bundle.min.js');
         </svg>
     </a>
 
-    <div class="top-menu">
+    <div class="top-menu nav" style="">
       <?$APPLICATION->IncludeComponent("bitrix:menu", "header-menu", Array(
           "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
           "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
@@ -69,7 +70,9 @@ $assets->addJs(SITE_TEMPLATE_PATH . 'js/bootstrap.bundle.min.js');
       ),
           false
       );?>
+        <a class="telephone" href="tel:<?=sprint_options_get('TEL')?>"><?=sprint_options_get('TEL')?></a>
     </div>
+
   </nav>
 
 </header>

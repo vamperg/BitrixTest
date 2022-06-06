@@ -1,9 +1,12 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+
+use Sprint\Options\Builder\Builder;
 $APPLICATION->SetPageProperty("title", "Главная");
 $APPLICATION->SetPageProperty("description", "Главная страница");
 $APPLICATION->SetTitle("General");
-?><!--   <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+?>
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
             <h1 class="display-4 fw-normal">Punny headline</h1>
             <p class="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
@@ -79,8 +82,14 @@ $APPLICATION->SetTitle("General");
             </div>
             <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
         </div>
-    </div>-->
+    </div>
 
-
+<script>
+    addEventListener("scroll",function(){
+        var page=window.pageYOffset;
+        var site_header=document.querySelector(".site-header");
+        10<page?(site_header.classList.add("shadow")):(
+            site_header.classList.remove("shadow"))});
+</script>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
