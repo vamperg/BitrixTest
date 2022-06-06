@@ -71,7 +71,9 @@ $assets->addJs(SITE_TEMPLATE_PATH . 'js/script.js');
           false
       );?>
         <a class="telephone" href="tel:<?=sprint_options_get('TEL')?>"><?=sprint_options_get('TEL')?></a>
+
     </div>
+
 
   </nav>
 
