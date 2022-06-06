@@ -1,0 +1,11 @@
+{
+
+    "require": {
+        "andreyryabin/sprint.options": "^2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
