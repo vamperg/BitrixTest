@@ -1,0 +1,1 @@
+<?php $filesInfo = ["/local/templates/BootstrapTemplate/menu_styles.css" => "165453096538","/local/templates/BootstrapTemplate/styles.css" => "1654530832156782",]; ?>

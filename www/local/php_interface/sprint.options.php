@@ -15,7 +15,13 @@ return (new Builder)
     ])
     ->addOption('OFFICE', [
         'TITLE'   => 'Адрес офиса',
-        'DEFAULT' => 'Адрес офиса',
+        'DEFAULT' => 'г. Уфа, ул. Тестовая, д. 28, стр. 1, офис 205',
+        'WIDTH'   => '600',
+        'HEIGHT'  => '100',
+    ])
+    ->addOption('TIME', [
+        'TITLE'   => 'Время работа',
+        'DEFAULT' => 'Время работы офиса:<br>Пн-пт с 10:00 до 19:00<br>Время работы диспетчерской:<br>с 9:00 до 21:00, без выходных',
         'WIDTH'   => '600',
         'HEIGHT'  => '100',
     ])
@@ -36,18 +42,37 @@ return (new Builder)
             'var4' => 'Вариант 4',
         ],
     ])
-    ->addPage('Страница 2')
-    ->addTab('Таб 1')
-    ->addOption('EMAIL_OFFICE_1', [
-        'TITLE'   => 'Email офиса 1',
+    ->addPage('Мессенджеры')
+    ->addTab('facebook')
+    ->addOption('facebook', [
+        'TITLE'   => 'Ссылка на сайт',
         'DEFAULT' => 'about1@example.com',
         'WIDTH'   => '400',
     ])
-    ->addTab('Таб 2')
-    ->addOption('EMAIL_OFFICE_2', [
-        'TITLE'   => 'Email офиса 2',
+    ->addTab('youtube')
+    ->addOption('youtube', [
+        'TITLE'   => 'Ссылка на сайт',
+        'DEFAULT' => 'about1@example.com',
+        'WIDTH'   => '400',
+    ])
+    ->addTab('instagram')
+    ->addOption('instagram', [
+        'TITLE'   => 'Ссылка на сайт',
+        'DEFAULT' => 'about1@example.com',
+        'WIDTH'   => '400',
+    ])
+    ->addTab('telegram')
+    ->addOption('telegram', [
+        'TITLE'   => 'Ссылка на сайт',
+        'DEFAULT' => 'about1@example.com',
+        'WIDTH'   => '400',
+    ])
+    ->addTab('ВК')
+    ->addOption('vk', [
+        'TITLE'   => 'Ссылка на сайт',
         'DEFAULT' => 'about2@example.com',
         'WIDTH'   => '400',
     ]);
+
 
 ?>
