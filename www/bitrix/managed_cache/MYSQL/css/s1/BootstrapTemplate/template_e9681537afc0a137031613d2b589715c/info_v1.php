@@ -1,1 +1,0 @@
-<?php $filesInfo = ["/local/templates/BootstrapTemplate/styles.css" => "1654530454156819",]; ?>
