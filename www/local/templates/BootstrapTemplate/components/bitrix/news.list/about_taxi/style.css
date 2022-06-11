@@ -1,0 +1,73 @@
+.about-title a{
+    text-decoration: none;
+    color: black;
+    font-size: 36px;
+    font-weight: 700;
+}
+.center{
+    text-align: center;
+}
+
+.cardbox-info{
+    align-self: center;
+}
+@keyframes fade-in-down{
+    0% {opacity: 0; transform: translateY(-30%);}
+    100% {transform: translateY(0);
+        opacity: 1;}
+}
+@keyframes fade-in-left{
+    0% {opacity: 0; transform: translateX(+30%);}
+    100% {transform: translateX(0);
+        opacity: 1;}
+}
+@keyframes fade-in-right{
+    0% {opacity: 0; transform: translateX(-30%);}
+    100% {transform: translateX(0);
+        opacity: 1;}
+}
+.card-about{
+    animation: fade-in-down 0.8s forwards;
+    padding-right: 5rem;
+    padding-left: 8rem;
+    margin-top: 4.9rem !important;
+    box-shadow: 0 0 40px rgb(0 0 0 / 5%);
+    border-radius: 36px;
+    background-color: white;
+}
+.cardbox-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-revers-nobg{
+    animation: fade-in-right 0.8s forwards;
+    -webkit-box-direction: reverse;
+    flex-direction: row-reverse;
+    background: 0 0!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+.item-title{
+
+}
+.item-title span{
+    margin-top: 1.7rem;
+    color: #ff8400;
+    font-size: 84px;
+    font-weight: 700;
+}
+.item-title h1{
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 33.6px;
+}
+
+.item-description{
+    animation: fade-in-left 1.4s forwards !important;
+    padding-left: 3rem;
+    line-height: 24px;
+    font-size: 18px;
+    color: rgba(34,36,38,.6);
+    font-weight: 500;
+}
