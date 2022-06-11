@@ -18,7 +18,11 @@ $this->setFrameMode(true);
     <div class="row about-title ">
         <a href="/about"class="center">С нами удобно и выгодно</a>
     </div>
-    <?php $i = 1; foreach ($arResult["ITEMS"] as $arItem):?>
+    <?php $i = 1; foreach ($arResult["ITEMS"] as $arItem):
+
+        $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+        $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+        ?>
         <div class="row card-about card-container <?php if (($i % 2) == 0): echo "card-revers-nobg"; endif; $i++;  ?>" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
             <div class="col cardbox-info">
                 <div class="row item-title">
