@@ -27,8 +27,13 @@ body{
 }
 
 .site-header {
-    background-color: white;
+    padding-top:2rem;
+    background-color: #fafafa;
 
+}
+.off-stick{
+
+    height: 7rem;
 }
 .site-header a {
     color: #8e8e8e;

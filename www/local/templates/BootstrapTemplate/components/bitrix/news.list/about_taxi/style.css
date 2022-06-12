@@ -1,8 +1,13 @@
 .about-title a{
+    transition: 0.4s ease;
     text-decoration: none;
     color: black;
     font-size: 36px;
     font-weight: 700;
+}
+.about-title a:hover{
+    transform: translateY(-5px);
+    color: #ff8400;
 }
 .center{
     text-align: center;

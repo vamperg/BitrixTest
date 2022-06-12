@@ -45,7 +45,7 @@ $assets->addJs(SITE_TEMPLATE_PATH . 'js/script.js');
   <?php $APPLICATION->ShowPanel(); ?>
 
 
-<header class="site-header sticky-top align-middle py-2">
+<header class="site-header sticky-top align-middle py-3 off-stick">
   <nav class="container d-flex flex-column flex-md-row justify-content-between align-middle">
     <a class="py-2" href="/index.php" aria-label="Product">
         <svg width="147" height="40" viewBox="0 0 147 40" fill="none" xmlns="http://www.w3.org/2000/svg">
