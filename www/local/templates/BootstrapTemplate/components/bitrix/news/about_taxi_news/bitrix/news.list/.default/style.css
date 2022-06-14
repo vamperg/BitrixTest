@@ -1,0 +1,36 @@
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+.card-news{
+	margin: auto;
+}
+.card-box .card-news{
+	border: 0;
+	box-shadow: 0 0 31px -1px rgba(0,0,0,0.1);
+}
+.card-body{
+	height: 13rem;
+	overflow: hidden;
+}
+.card-body .card-title{
+	font-size: 1.55rem;
+ }
+.card-img-top{
+	transition: 0.5s ease;
+}
+.card-img-top:hover{
+	transform:scale(1.1);
+}
+
+.card-text {
+	color: #767676 !important;
+}
