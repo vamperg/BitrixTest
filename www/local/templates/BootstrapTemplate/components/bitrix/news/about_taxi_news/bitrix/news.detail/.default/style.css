@@ -11,3 +11,17 @@ div.news-detail img.detail_picture
 {
 	color:#486DAA;
 }
+
+.detail_news .card{
+	border:none;
+	box-shadow: 0 0 40px  6px rgba(0,0,0,0.06);
+	border-radius: 12px;
+	padding-top: 1rem;
+}
+.detail_news .back-button{
+	transition: 0.5s cubic-bezier(0.61, 0.01, 0.34, 1.02);
+}
+
+.detail_news .back-button:hover{
+	transform: rotate(-360deg);
+}

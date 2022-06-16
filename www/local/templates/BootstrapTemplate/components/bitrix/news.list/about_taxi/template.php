@@ -38,7 +38,7 @@ $this->setFrameMode(true);
                 </div>
             </div>
             <div class="col cardbox-image">
-                <img src="<?=$arItem['PREVIEW_PICTURE']['SRC'];?>">
+                <a href="<?=$arItem["DETAIL_PAGE_URL"];?>"><img src="<?=$arItem['PREVIEW_PICTURE']['SRC'];?>"></a>
             </div>
         </div>
     <?php endforeach;?>
