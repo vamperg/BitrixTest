@@ -64,9 +64,9 @@ $APPLICATION->SetTitle("General");
 	)
 );?>
     <?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"about_taxi", 
-	array(
+	"bitrix:news.list",
+	"about_taxi",
+	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -79,6 +79,7 @@ $APPLICATION->SetTitle("General");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "about_taxi",
 		"DETAIL_URL" => "#SITE_DIR#/about/#ELEMENT_CODE#/",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "N",
@@ -86,12 +87,7 @@ $APPLICATION->SetTitle("General");
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "N",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
-			0 => "NAME",
-			1 => "PREVIEW_TEXT",
-			2 => "PREVIEW_PICTURE",
-			3 => "",
-		),
+		"FIELD_CODE" => array(0=>"NAME",1=>"PREVIEW_TEXT",2=>"PREVIEW_PICTURE",3=>"",),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "7",
@@ -110,10 +106,7 @@ $APPLICATION->SetTitle("General");
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
-		),
+		"PROPERTY_CODE" => array(0=>"",1=>"",),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",
@@ -125,12 +118,48 @@ $APPLICATION->SetTitle("General");
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "ASC",
 		"SORT_ORDER2" => "ASC",
-		"STRICT_SECTION_CHECK" => "N",
-		"COMPONENT_TEMPLATE" => "about_taxi"
+		"STRICT_SECTION_CHECK" => "N"
+	)
+);?><?$APPLICATION->IncludeComponent("bitrix:form", "request_form", Array(
+	"AJAX_MODE" => "Y",	// Включить режим AJAX
+		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+		"AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
+		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+		"AJAX_OPTION_STYLE" => "Y",	// Включить подгрузку стилей
+		"CACHE_TIME" => "3600",	// Время кеширования (сек.)
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"CHAIN_ITEM_LINK" => "",	// Ссылка на дополнительном пункте в навигационной цепочке
+		"CHAIN_ITEM_TEXT" => "",	// Название дополнительного пункта в навигационной цепочке
+		"EDIT_ADDITIONAL" => "N",	// Выводить на редактирование дополнительные поля
+		"EDIT_STATUS" => "Y",	// Выводить форму смены статуса
+		"IGNORE_CUSTOM_TEMPLATE" => "N",	// Игнорировать свой шаблон
+		"NAME_TEMPLATE" => "",
+		"NOT_SHOW_FILTER" => array(	// Коды полей, которые нельзя показывать в фильтре
+			0 => "",
+			1 => "",
+		),
+		"NOT_SHOW_TABLE" => array(	// Коды полей, которые нельзя показывать в таблице
+			0 => "",
+			1 => "",
+		),
+		"RESULT_ID" => "",	// ID результата
+		"SEF_MODE" => "N",	// Включить поддержку ЧПУ
+		"SHOW_ADDITIONAL" => "N",	// Показать дополнительные поля веб-формы
+		"SHOW_ANSWER_VALUE" => "N",	// Показать значение параметра ANSWER_VALUE
+		"SHOW_EDIT_PAGE" => "N",	// Показывать страницу редактирования результата
+		"SHOW_LIST_PAGE" => "N",	// Показывать страницу со списком результатов
+		"SHOW_STATUS" => "Y",	// Показать текущий статус результата
+		"SHOW_VIEW_PAGE" => "N",	// Показывать страницу просмотра результата
+		"START_PAGE" => "new",	// Начальная страница
+		"SUCCESS_URL" => "",	// Страница с сообщением об успешной отправке
+		"USE_EXTENDED_ERRORS" => "N",	// Использовать расширенный вывод сообщений об ошибках
+		"VARIABLE_ALIASES" => array(
+			"action" => "action",
+		),
+		"WEB_FORM_ID" => "1",	// ID веб-формы
 	),
 	false
-);?>
-    <script>
+);?>&nbsp;<script>
     addEventListener("scroll",function(){
         var page=window.pageYOffset;
         var site_header=document.querySelector(".site-header");
