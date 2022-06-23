@@ -7,7 +7,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 <? if ($arResult["isFormNote"] === "Y"): ?>
     <script>
         var modal=document.querySelector(".modal");
-        modal.style.display = "block";
+        function openModal() {
+            modal.style.display = "block";
+        }
         function closeModal(){
             modal.style.display = "none";
         }
@@ -24,7 +26,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
             </div>
         </div>
     </div>
-<? endif; ?>
+
+
+<? else: ?>
 
     <?=$arResult["FORM_HEADER"]?>
     <input type="hidden" name="web_form_submit" value="Y">
@@ -59,7 +63,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
                         </div>
 
                         <br>
-                        <input class="form-button" type="submit"  data-bs-toggle="modal" data-bs-target="#exampleModal" value="<?=$arResult["arForm"]["BUTTON"]?>">
+                        <input class="form-button" type="submit"  data-bs-toggle="modal" onclick="openModal();" data-bs-target="#exampleModal" value="<?=$arResult["arForm"]["BUTTON"]?>">
                     </div>
                 </div>
             </div>
@@ -69,7 +73,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 
     <?=$arResult["FORM_FOOTER"]?>
-<? ?>
+<? endif;?>
 
 <script>
     window.addEventListener("DOMContentLoaded", function() {
