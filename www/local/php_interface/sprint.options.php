@@ -13,6 +13,7 @@ return (new Builder)
         'DEFAULT' => 'about@example.com',
         'WIDTH'   => '400',
     ])
+
     ->addOption('OFFICE', [
         'TITLE'   => 'Адрес офиса',
         'DEFAULT' => 'г. Уфа, ул. Тестовая, д. 28, стр. 1, офис 205',
@@ -41,6 +42,14 @@ return (new Builder)
             'var3' => 'Вариант 3',
             'var4' => 'Вариант 4',
         ],
+    ])
+    ->addPage('Форма заявки')
+    ->addTab('Сообщение')
+    ->addOption('FORM_MESSAGE', [
+        'TITLE'   => 'Сообщение в форме',
+        'DEFAULT' => 'Заявка успешно отправлена',
+        'WIDTH'   => '600',
+        'HEIGHT'  => '100',
     ])
     ->addPage('Мессенджеры')
     ->addTab('facebook')

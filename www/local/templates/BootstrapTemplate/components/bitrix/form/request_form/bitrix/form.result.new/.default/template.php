@@ -1,113 +1,111 @@
 <?
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
-<?if ($arResult["isFormErrors"] == "Y"):?><?=$arResult["FORM_ERRORS_TEXT"];?><?endif;?>
 
-<?=$arResult["FORM_NOTE"]?>
 
-<?if ($arResult["isFormNote"] != "Y")
-{
-?>
-<?=$arResult["FORM_HEADER"]?>
 
-<table>
-<?
-if ($arResult["isFormDescription"] == "Y" || $arResult["isFormTitle"] == "Y" || $arResult["isFormImage"] == "Y")
-{
-?>
-	<tr>
-		<td><?
-/***********************************************************************************
-					form header
-***********************************************************************************/
-if ($arResult["isFormTitle"])
-{
-?>
-	<h3><?=$arResult["FORM_TITLE"]?></h3>
-<?
-} //endif ;
+<? if ($arResult["isFormNote"] === "Y"): ?>
+    <script>
+        var modal=document.querySelector(".modal");
+        modal.style.display = "block";
+        function closeModal(){
+            modal.style.display = "none";
+        }
+    </script>
+    <div class="modal" tabindex="1" style="background: rgba(0,0,0,0.6)">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content modal-box" >
+                <div class="modal-header">
+                    <button type="button" class="btn-close" onclick="closeModal();"  aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><?=sprint_options_get('FORM_MESSAGE')?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<? endif; ?>
 
-	if ($arResult["isFormImage"] == "Y")
-	{
-	?>
-	<a href="<?=$arResult["FORM_IMAGE"]["URL"]?>" target="_blank" alt="<?=GetMessage("FORM_ENLARGE")?>"><img src="<?=$arResult["FORM_IMAGE"]["URL"]?>" <?if($arResult["FORM_IMAGE"]["WIDTH"] > 300):?>width="300"<?elseif($arResult["FORM_IMAGE"]["HEIGHT"] > 200):?>height="200"<?else:?><?=$arResult["FORM_IMAGE"]["ATTR"]?><?endif;?> hspace="3" vscape="3" border="0" /></a>
-	<?//=$arResult["FORM_IMAGE"]["HTML_CODE"]?>
-	<?
-	} //endif
-	?>
+    <?=$arResult["FORM_HEADER"]?>
+    <input type="hidden" name="web_form_submit" value="Y">
+</div></div>
+    <div class="container-sm container-form" style="margin-top: 6rem; background: url(<?=$templateFolder?>/image/forms-bg.png);" >
+        <div class="row">
+            <div class="col">
+                <div class="form-box">
+                    <div class="row" style="margin-bottom: 1rem;" >
+                        <h3 style="padding: 0;">Оставляйте заявку<br> на подключение к Яндекс.Такси</h3>
+                    </div>
+                    <div class="row form-feed">
+                        <div class="row form-row">
+                        <?=$arResult["QUESTIONS"]['NAME']['CAPTION']?>
+                        <?=$arResult['funcGetInputHtml']($arResult["QUESTIONS"]['NAME'], $arResult['arrVALUES'])?>
+                        </div>
+                        <br>
+                        <div class="row form-row">
+                        <?=$arResult["QUESTIONS"]['TEL']['CAPTION']?>
+                        <?/*=$arResult["QUESTIONS"]['TEL']['HTML_CODE']*/?>
+                        <?=$arResult['funcGetInputHtml']($arResult["QUESTIONS"]['TEL'], $arResult['arrVALUES'])?>
+                        </div>
+                        <br>
+                        <div class="row form-row" style="padding: 0;">
+                            <div class="col-1">
+                         <?=$arResult['funcGetInputHtml']($arResult["QUESTIONS"]['CHECK'], $arResult['arrVALUES'])?>
+                            </div>
+                            <div class="col">
+                         <?=$arResult["QUESTIONS"]['CHECK']['CAPTION']?>
+                            </div>
+                         <?/*=$arResult["QUESTIONS"]['CHECK']['STRUCTURE'][0]['MESSAGE'];*/?>
+                        </div>
 
-			<p><?=$arResult["FORM_DESCRIPTION"]?></p>
-		</td>
-	</tr>
-	<?
-} // endif
-	?>
-</table>
-<br />
-<?
-/***********************************************************************************
-						form questions
-***********************************************************************************/
-?>
-<table class="form-table data-table">
-	<thead>
-		<tr>
-			<th colspan="2">&nbsp;</th>
-		</tr>
-	</thead>
-	<tbody>
-	<?
-	foreach ($arResult["QUESTIONS"] as $FIELD_SID => $arQuestion)
-	{
-	?>
-		<tr>
-			<td>
-				<?if (is_array($arResult["FORM_ERRORS"]) && array_key_exists($FIELD_SID, $arResult['FORM_ERRORS'])):?>
-				<span class="error-fld" title="<?=htmlspecialcharsbx($arResult["FORM_ERRORS"][$FIELD_SID])?>"></span>
-				<?endif;?>
-				<?=$arQuestion["CAPTION"]?><?if ($arQuestion["REQUIRED"] == "Y"):?><?=$arResult["REQUIRED_SIGN"];?><?endif;?>
-				<?=$arQuestion["IS_INPUT_CAPTION_IMAGE"] == "Y" ? "<br />".$arQuestion["IMAGE"]["HTML_CODE"] : ""?>
-			</td>
-			<td><?=$arQuestion["HTML_CODE"]?></td>
-		</tr>
-	<?
-	} //endwhile
-	?>
-<?
-if($arResult["isUseCaptcha"] == "Y")
-{
-?>
-		<tr>
-			<th colspan="2"><b><?=GetMessage("FORM_CAPTCHA_TABLE_TITLE")?></b></th>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td><input type="hidden" name="captcha_sid" value="<?=htmlspecialcharsbx($arResult["CAPTCHACode"]);?>" /><img src="/bitrix/tools/captcha.php?captcha_sid=<?=htmlspecialcharsbx($arResult["CAPTCHACode"]);?>" width="180" height="40" /></td>
-		</tr>
-		<tr>
-			<td><?=GetMessage("FORM_CAPTCHA_FIELD_TITLE")?><?=$arResult["REQUIRED_SIGN"];?></td>
-			<td><input type="text" name="captcha_word" size="30" maxlength="50" value="" class="inputtext" /></td>
-		</tr>
-<?
-} // isUseCaptcha
-?>
-	</tbody>
-	<tfoot>
-		<tr>
-			<th colspan="2">
-				<input <?=(intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : "");?> type="submit" name="web_form_submit" value="<?=htmlspecialcharsbx(trim($arResult["arForm"]["BUTTON"]) == '' ? GetMessage("FORM_ADD") : $arResult["arForm"]["BUTTON"]);?>" />
-				<?if ($arResult["F_RIGHT"] >= 15):?>
-				&nbsp;<input type="hidden" name="web_form_apply" value="Y" /><input type="submit" name="web_form_apply" value="<?=GetMessage("FORM_APPLY")?>" />
-				<?endif;?>
-				&nbsp;<input type="reset" value="<?=GetMessage("FORM_RESET");?>" />
-			</th>
-		</tr>
-	</tfoot>
-</table>
-<p>
-<?=$arResult["REQUIRED_SIGN"];?> - <?=GetMessage("FORM_REQUIRED_FIELDS")?>
-</p>
-<?=$arResult["FORM_FOOTER"]?>
-<?
-} //endif (isFormNote)
-?>
+                        <br>
+                        <input class="form-button" type="submit"  data-bs-toggle="modal" data-bs-target="#exampleModal" value="<?=$arResult["arForm"]["BUTTON"]?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <?=$arResult["FORM_FOOTER"]?>
+<? ?>
+
+<script>
+    window.addEventListener("DOMContentLoaded", function() {
+        [].forEach.call( document.querySelectorAll('.phone'), function(input) {
+            var keyCode;
+            function mask(event) {
+                event.keyCode && (keyCode = event.keyCode);
+                var pos = this.selectionStart;
+                if (pos < 3) event.preventDefault();
+                var matrix = "+7 (___) ___ ____",
+                    i = 0,
+                    def = matrix.replace(/\D/g, ""),
+                    val = this.value.replace(/\D/g, ""),
+                    new_value = matrix.replace(/[_\d]/g, function(a) {
+                        return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+                    });
+                i = new_value.indexOf("_");
+                if (i != -1) {
+                    i < 5 && (i = 3);
+                    new_value = new_value.slice(0, i)
+                }
+                var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+                    function(a) {
+                        return "\\d{1," + a.length + "}"
+                    }).replace(/[+()]/g, "\\$&");
+                reg = new RegExp("^" + reg + "$");
+                if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+                if (event.type == "blur" && this.value.length < 5)  this.value = ""
+            }
+
+            input.addEventListener("input", mask, false);
+            input.addEventListener("focus", mask, false);
+            input.addEventListener("blur", mask, false);
+            input.addEventListener("keydown", mask, false)
+
+        });
+
+    });
+</script>

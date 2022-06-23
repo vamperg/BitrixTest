@@ -12,9 +12,10 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.touchswipe/1.6.5/jquery.touchSwipe.min.js"></script>
 <?php if (!empty($arResult["ITEMS"])): ?>
-    <div class="container-sm" style="margin-bottom: 30px;">
+    <div class="container-sm" style="margin-bottom: -1.5rem;">
         <div id="mainPageCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php $i = 0; foreach ($arResult["ITEMS"] as $arItem):
@@ -41,8 +42,9 @@ $this->setFrameMode(true);
     </div>
 <?php endif; ?>
 
-        <script src="//cdn.jsdelivr.net/jquery.touchswipe/1.6.5/jquery.touchSwipe.min.js"></script>
-        <script>$(document).ready(function(){
+
+        <script>
+            $(document).ready(function(){
                 $(".carousel").swipe( {
                     swipeLeft: function() {
                         $(this).carousel("next");
