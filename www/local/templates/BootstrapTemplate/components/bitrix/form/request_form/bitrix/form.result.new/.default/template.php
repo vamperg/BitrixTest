@@ -7,6 +7,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 <? if ($arResult["isFormNote"] === "Y"): ?>
     <script>
         var modal=document.querySelector(".modal");
+        modal.style.display = "block";
         function openModal() {
             modal.style.display = "block";
         }
@@ -27,12 +28,54 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
         </div>
     </div>
 
+    <?=$arResult["FORM_HEADER"]?>
+    <input type="hidden" name="web_form_submit" value="Y">
 
+    <div class="container-sm container-form" style="margin-top: 6rem; background: url(<?=$templateFolder?>/image/forms-bg.png);" >
+        <div class="row">
+            <div class="col">
+                <div class="form-box">
+                    <div class="row" style="margin-bottom: 1rem;" >
+                        <h3 style="padding: 0;">Оставляйте заявку<br> на подключение к Яндекс.Такси</h3>
+                    </div>
+                    <div class="row form-feed">
+                        <div class="row form-row">
+                            <?=$arResult["QUESTIONS"]['NAME']['CAPTION']?>
+                            <?=$arResult['funcGetInputHtml']($arResult["QUESTIONS"]['NAME'], $arResult['arrVALUES'])?>
+                        </div>
+                        <br>
+                        <div class="row form-row">
+                            <?=$arResult["QUESTIONS"]['TEL']['CAPTION']?>
+                            <?/*=$arResult["QUESTIONS"]['TEL']['HTML_CODE']*/?>
+                            <?=$arResult['funcGetInputHtml']($arResult["QUESTIONS"]['TEL'], $arResult['arrVALUES'])?>
+                        </div>
+                        <br>
+                        <div class="row form-row" style="padding: 0;">
+                            <div class="col-1">
+                                <?=$arResult['funcGetInputHtml']($arResult["QUESTIONS"]['CHECK'], $arResult['arrVALUES'])?>
+                            </div>
+                            <div class="col">
+                                <?=$arResult["QUESTIONS"]['CHECK']['CAPTION']?>
+                            </div>
+                            <?/*=$arResult["QUESTIONS"]['CHECK']['STRUCTURE'][0]['MESSAGE'];*/?>
+                        </div>
+
+                        <br>
+                        <input class="form-button" type="submit"  data-bs-toggle="modal"  data-bs-target="#exampleModal" value="<?=$arResult["arForm"]["BUTTON"]?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <?=$arResult["FORM_FOOTER"]?>
 <? else: ?>
 
     <?=$arResult["FORM_HEADER"]?>
     <input type="hidden" name="web_form_submit" value="Y">
-</div></div>
+
     <div class="container-sm container-form" style="margin-top: 6rem; background: url(<?=$templateFolder?>/image/forms-bg.png);" >
         <div class="row">
             <div class="col">
@@ -63,7 +106,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
                         </div>
 
                         <br>
-                        <input class="form-button" type="submit"  data-bs-toggle="modal" onclick="openModal();" data-bs-target="#exampleModal" value="<?=$arResult["arForm"]["BUTTON"]?>">
+                        <input class="form-button" type="submit"  data-bs-toggle="modal"   data-bs-target="#exampleModal" value="<?=$arResult["arForm"]["BUTTON"]?>">
                     </div>
                 </div>
             </div>
